@@ -1,0 +1,84 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.total-contacts,
+.favourite-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 30px 10px;
+}
+
+.total-contacts-heading,
+.favourite-contacts-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.total-contacts-card,
+.favourite-contacts-card {
+  flex: 1;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 3px;
+  min-width: 250px;
+}
+
+.family-card {
+  background-color: #dc3545;
+}
+
+.friends-card {
+  background-color: #198754;
+}
+
+.colleagues-card {
+  background-color: #0d6efd;
+}
+
+.others-card {
+  background-color: #ffc107;
+}
+
+.contacts-card-head {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.total-contacts-text,
+.favourite-contacts-text {
+  color: white;
+}
+
+.total-contacts-value,
+.favourite-contacts-value {
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.loader {
+  display: inline-block;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #000000;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

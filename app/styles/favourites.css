@@ -1,0 +1,103 @@
+.cards-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contact-card {
+  width: 275px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.216);
+  position: relative;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-avatar {
+  height: 150px;
+}
+
+.contact-body {
+  padding: 5px;
+}
+
+.contact-body p {
+  text-align: center;
+  padding: 5px 0;
+}
+
+.contact-person-name {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.contact-person-phone-number {
+  color: green;
+}
+
+.contact-button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.call-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.call-button i {
+  margin-right: 8px;
+}
+
+.call-button:hover {
+  background-color: #218838;
+}
+
+.call-button:active {
+  background-color: #1e7e34;
+}
+
+.contact-footer{
+  margin-top: 10px;
+  padding: 3px;
+}
+
+.favourite-top-right{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.view-contact-button{
+  padding: 10px 0;
+  width: 100%;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  cursor: pointer;
+}
+
+.view-contact-button:active{
+  background-color: #4c90f5;
+}
+
+.invert{
+  transform: rotate(90deg);
+}

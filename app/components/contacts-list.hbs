@@ -1,0 +1,10 @@
+<ul data-test-contacts-list>
+  {{#each @data as |contact|}}
+    <li>
+      <LinkTo
+        @route='contacts.contact'
+        @model={{contact.id}}
+      >{{contact.name}}</LinkTo>
+    </li>
+  {{/each}}
+</ul>

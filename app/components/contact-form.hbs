@@ -1,0 +1,133 @@
+<form class='contact-form'>
+  <h1 class='contact-form-heading' data-test-contact-form-header>
+    {{if @data 'Modify the details' 'Enter the new contact details'}}
+  </h1>
+  <div class='form-group'>
+    <label for='name'>Name</label>
+    <p class='error-message'>{{@errorMessage.name}}</p>
+    <input
+      type='text'
+      id='name'
+      name='name'
+      class='form-control'
+      placeholder='Contact name'
+      value={{this.name}}
+      required
+      {{on 'input' this.updateValue}}
+      data-test-contact-form-name
+    />
+  </div>
+
+  <div class='form-group'>
+    <label for='relationship'>Relationship</label>
+    <p class='error-message'>{{@errorMessage.relationship}}</p>
+    <select
+      id='relationship'
+      name='relationship'
+      class='form-select'
+      value={{this.relationship}}
+      required
+      {{on 'input' this.updateValue}}
+      data-test-contact-form-relationship
+    >
+      {{#each (array 'Friend' 'Family' 'Colleague' 'Other') as |value|}}
+        {{#if this.relationship}}
+          {{#if (eq value this.relationship)}}
+            <option value={{value}} selected>{{value}}</option>
+          {{else}}
+            <option value={{value}}>{{value}}</option>
+          {{/if}}
+        {{else}}
+          {{#if (eq value 'Friend')}}
+            <option value={{value}} selected>{{value}}</option>
+          {{else}}
+            <option value={{value}}>{{value}}</option>
+          {{/if}}
+        {{/if}}
+      {{/each}}
+    </select>
+  </div>
+
+  <div class='form-group'>
+    <label for='phone'>Phone Number</label>
+    <p class='error-message'>{{@errorMessage.phone}}</p>
+    <input
+      type='tel'
+      id='phone'
+      name='phone'
+      class='form-control'
+      placeholder='Phone Number'
+      value={{this.phone}}
+      required
+      {{on 'input' this.updateValue}}
+      data-test-contact-form-phone
+    />
+  </div>
+
+  <div class='form-group'>
+    <label for='email'>Email</label>
+    <p class='error-message'>{{@errorMessage.email}}</p>
+    <input
+      type='email'
+      id='email'
+      name='email'
+      class='form-control'
+      placeholder='Email'
+      value={{this.email}}
+      required
+      {{on 'input' this.updateValue}}
+      data-test-contact-form-email
+    />
+  </div>
+
+  <div class='form-group'>
+    <label for='address'>Address</label>
+    <p class='error-message'>{{@errorMessage.address}}</p>
+    <textarea
+      id='address'
+      name='address'
+      class='form-control'
+      placeholder='Address'
+      value={{this.address}}
+      required
+      {{on 'input' this.updateValue}}
+      data-test-contact-form-address
+    ></textarea>
+  </div>
+
+  <div class='form-group'>
+    <label for='about'>About</label>
+    <p class='error-message'>{{@errorMessage.about}}</p>
+    <textarea
+      id='about'
+      name='about'
+      class='form-control'
+      placeholder='About'
+      value={{this.about}}
+      required
+      {{on 'input' this.updateValue}}
+      data-test-contact-form-about
+    ></textarea>
+  </div>
+
+  <div class='form-actions'>
+    {{#if this.loadingHandler.canAddOrEdit}}
+      <button class='btn btn-primary' type='button' disabled>
+        <span
+          class='spinner-border spinner-border-sm'
+          role='status'
+          aria-hidden='true'
+        ></span>
+        Saving...
+      </button>
+    {{else}}
+      <button
+        type='button'
+        class='btn btn-primary'
+        {{on 'click' this.performAction}}
+        data-test-contact-form-save
+      >Save</button>
+    {{/if}}
+    <button type='reset' class='btn btn-secondary'>Reset</button>
+  </div>
+</form>

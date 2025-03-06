@@ -1,0 +1,9 @@
+{{#if this.favourites.favourites}}
+  <div class='cards-wrapper'>
+    {{#each this.favourites.favourites as |data|}}
+      <ContactCard @data={{data}} @toggleFavourite={{fn this.toggleFavourite data}}/>
+    {{/each}}
+  </div>
+{{else}}
+  <Nothing />
+{{/if}}
