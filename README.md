@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd c-m-s`
-* `npm install`
+* `npm ci`
 
 ## Running / Development
 
