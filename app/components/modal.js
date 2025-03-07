@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class ModalComponent extends Component {
@@ -8,6 +9,13 @@ export default class ModalComponent extends Component {
   constructor() {
     super(...arguments);
     this.modalConfig();
+  }
+
+  @action
+  onclose() {
+    if (this.args.onclose) {
+      this.args.onclose();
+    }
   }
 
   modalConfig() {
