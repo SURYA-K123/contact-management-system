@@ -1,0 +1,73 @@
+<div class='contact-details' data-test-view-contact>
+  {{#if this.hasData}}
+    <LinkTo @route='contacts'><button
+        type='button'
+        class='btn-close'
+        aria-label='Close'
+      ></button></LinkTo>
+    <h2>Contact Details</h2>
+    <div class='details-row' data-test-view-contact-name>
+      <span class='label'>Name:</span>
+      <span class='value'>{{@details.name}}</span>
+    </div>
+    <div class='details-row'>
+      <span class='label'>Relationship:</span>
+      <span class='value'>{{@details.relationship}}</span>
+    </div>
+    <div class='details-row'>
+      <span class='label'>Phone:</span>
+      <span class='value'>{{@details.phone}}</span>
+    </div>
+    <div class='details-row'>
+      <span class='label'>Email:</span>
+      <span class='value'>{{@details.email}}</span>
+    </div>
+    <div class='details-row'>
+      <span class='label'>Address:</span>
+      <span class='value'>{{@details.address}}</span>
+    </div>
+    <div class='details-row'>
+      <span class='label'>About:</span>
+      <span class='value'>{{@details.about}}</span>
+    </div>
+    <div class='details-actions'>
+      <button
+        type='button'
+        class='btn btn-primary'
+        data-test-edit-contact-button
+        {{on 'click' (fn @onedit @details.id)}}
+      >
+        Edit
+      </button>
+      {{#if this.loadingHandler.canDelete}}
+        <button class='btn btn-danger' type='button' disabled>
+          <span
+            class='spinner-border spinner-border-sm'
+            role='status'
+            aria-hidden='true'
+          ></span>
+          Deleting...
+        </button>
+      {{else}}
+        <button
+          type='button'
+          class='btn btn-danger'
+          {{on 'click' @ondelete}}
+          data-test-delete-contact-button
+        >
+          Delete
+        </button>
+      {{/if}}
+      <i
+        role='button'
+        class='fa fa-heart wishlist-icon
+          {{if @details.isFavourite "is-favourite"}}'
+        {{on 'click' @toggleFavourite}}
+      ></i>
+    </div>
+  {{else}}
+    <div class='alert alert-danger' role='alert'>
+      No such contact found!
+    </div>
+  {{/if}}
+</div>

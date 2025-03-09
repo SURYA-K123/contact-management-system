@@ -1,0 +1,26 @@
+<div class='dashboard' data-test-dashboard>
+  <Dashboard::Section
+    @section-title='Total Contacts'
+    @section-type='total-contacts'
+  >
+    {{#each this.totalContacts as |contact|}}
+      <Dashboard::SectionCard
+        @section-type='total-contacts'
+        @contact-type={{contact.class}}
+        @total={{contact.total}}
+      />
+    {{/each}}
+  </Dashboard::Section>
+  <Dashboard::Section
+    @section-title='Favourite Contacts'
+    @section-type='favourite-contacts'
+  >
+    {{#each this.totalFavouriteContacts as |contact|}}
+      <Dashboard::SectionCard
+        @section-type='favourite-contacts'
+        @contact-type={{contact.class}}
+        @total={{contact.total}}
+      />
+    {{/each}}
+  </Dashboard::Section>
+</div>

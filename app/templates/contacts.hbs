@@ -1,0 +1,100 @@
+<Modal @modalId='call-modal' @data={{this.name}} />
+<div class='dropdown-wrapper'>
+  <Dropdown
+    @buttonText={{concat 'Sort by: ' this.sortby}}
+    @options={{array 'name' 'phone'}}
+    @onOptionSelected={{fn this.updateQueryParamChange 'sort'}}
+  />
+  <Dropdown
+    @buttonText={{concat 'Filter by: ' this.filterby}}
+    @options={{array 'All' 'Friend' 'Family' 'Colleague' 'Other'}}
+    @onOptionSelected={{fn this.updateQueryParamChange 'filter'}}
+  />
+  <label for='search-term'>
+    <div class='search-container'>
+      <Input
+        @type='text'
+        @value={{this.searchValue}}
+        placeholder='Enter name to search'
+        class='form-control'
+        {{on 'input' this.searchContacts}}
+        data-test-search-bar
+      />
+      {{#if this.searchValue}}
+        <div class='search-results'>
+          <ul>
+            {{#if this.searchedData}}
+              {{#each this.searchedData as |contact|}}
+                <li><LinkTo
+                    @route='contacts.contact'
+                    @model={{contact.id}}
+                  >{{contact.name}}</LinkTo>
+                </li>
+              {{/each}}
+            {{else}}
+              <p>No results</p>
+            {{/if}}
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  </label>
+  <button
+    type='button'
+    class='btn btn-success'
+    data-test-add-button
+    {{on 'click' this.goToAdd}}
+  >
+    Add
+  </button>
+</div>
+{{#if this.enteredChild}}
+  <div class='contact-handler'>
+    <div class='contacts-list'>
+      {{#if this.loadingHandler.isContactsLoaderActive}}
+        <Loader />
+      {{else}}
+        {{#if this.contacts}}
+          <ContactsList @data={{this.contacts}} />
+        {{else}}
+          <p>No data found</p>
+        {{/if}}
+      {{/if}}
+    </div>
+    {{#if this.isContactLoaded}}
+      {{outlet}}
+    {{else}}
+      <Loader />
+    {{/if}}
+  </div>
+{{else}}
+  <div class='contacts-container'>
+    <div class='table-responsive'>
+      <table class='table table-striped' data-test-contacts-table>
+        <thead class='contacts-table-header' data-test-table-head>
+          <tr>
+            <th>Name</th>
+            <th>Relationship</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Call</th>
+            <th>Favourite</th>
+          </tr>
+        </thead>
+        <tbody class='contacts-table-body' data-test-table-body>
+          {{#if this.loadingHandler.isContactsLoaderActive}}
+            <Loader />
+          {{else}}
+            {{#each this.contacts as |contact|}}
+              <ContactsTableBody
+                @details={{contact}}
+                @toggleFavourite={{fn this.toggleFavourite contact}}
+                @updateName={{this.updateName}}
+              />
+            {{/each}}
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{{/if}}

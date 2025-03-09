@@ -1,0 +1,30 @@
+<div class='contact-card'>
+  <div class='contact-header'>
+    <img
+      src='/images/contact.jpeg'
+      alt='Imag'
+      class='contact-avatar'
+      srcset=''
+    />
+  </div>
+  <div class='contact-body'>
+    <p class='contact-person-name'>
+      {{@data.name}}
+    </p>
+    <p class='contact-person-phone-number'>
+      {{@data.phone}}
+    </p>
+  </div>
+  <div class='contact-button-group'>
+    <button type='button' class='call-button'>
+      <i class='fa fa-phone invert'></i>
+      Call
+    </button>
+    <i
+      role='button'
+      class='fa fa-heart wishlist-icon favourite-top-right
+        {{if @data.isFavourite "is-favourite"}}'
+      {{on 'click' @toggleFavourite}}
+    ></i>
+  </div>
+</div>

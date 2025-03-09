@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none !important;
+}
+
+.navbar {
+  height: 80px;
+  background-color: #3498db;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-logo {
+  border-radius: 6px;
+}
+
+.navbar-img,
+.navbar-right {
+  height: 60%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.add-contact-button {
+  height: 70%;
+  padding: 0 10px;
+  border-radius: 5px;
+  background-color: #1abc9c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-contact-button:active {
+  background-color: green;
+}
+
+.profile-image {
+  height: 100%;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+
+.menus-section {
+  flex: 0 0 auto;
+  height: 100%;
+  width: 200px;
+  background-color: #3498db;
+}
+
+.menus {
+  padding: 0;
+}
+
+.menu-item {
+  padding: 15px 30px;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+  background-color: #60abdd;
+}
+
+.menu-link {
+  color: white;
+  display: block;
+}
+
+.route-content {
+  height: calc(100% - 30px);
+  width: calc(100% - 240px);
+  box-sizing: border-box;
+  margin: auto;
+  overflow: scroll;
+  position: relative;
+}

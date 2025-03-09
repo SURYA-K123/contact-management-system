@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CMS Tests</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {{content-for "head"}}
+  {{content-for "test-head"}}
+
+  <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link rel="stylesheet" href="{{rootURL}}assets/c-m-s.css">
+  <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  {{content-for "head-footer"}}
+  {{content-for "test-head-footer"}}
+</head>
+
+<body>
+  {{content-for "body"}}
+  {{content-for "test-body"}}
+
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+    <div id="ember-testing-container">
+      <div id="ember-testing"></div>
+    </div>
+  </div>
+
+  <script src="/testem.js" integrity="" data-embroider-ignore></script>
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/test-support.js"></script>
+  <script src="{{rootURL}}assets/c-m-s.js"></script>
+  <script src="{{rootURL}}assets/tests.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+  {{content-for "body-footer"}}
+  {{content-for "test-body-footer"}}
+</body>
+
+</html>

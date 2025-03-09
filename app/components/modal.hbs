@@ -1,0 +1,36 @@
+<div
+  class='modal fade'
+  id={{@modalId}}
+  tabindex='-1'
+  aria-labelledby='exampleModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>{{concat
+            this.modalText
+            @data
+          }}</h1>
+      </div>
+      <div class='modal-footer'>
+        {{#each this.modalButtons as |button|}}
+          <ModalButton
+            @buttonAction={{button.action}}
+            @buttonText={{button.label}}
+            class={{button.class}}
+          />
+        {{/each}}
+        <button
+          type='button'
+          class='btn btn-success'
+          data-bs-dismiss='modal'
+          {{on 'click' this.onclose}}
+          data-test-modal-close-button
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

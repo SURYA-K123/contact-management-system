@@ -1,0 +1,8 @@
+<Modal @modalId='onedit' />
+<Modal @modalId='onadd' />
+<ContactForm
+  @data={{@model}}
+  @onAdd={{this.addContact}}
+  @onEdit={{this.updateContact}}
+  @errorMessage={{get this.contact.errorMessages '0'}}
+/>
