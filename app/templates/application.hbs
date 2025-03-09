@@ -1,0 +1,11 @@
+<Navbar />
+<div class='main'>
+  <Menus />
+  <div class='route-content'>
+    {{#if this.loadingHandler.isMainLoaderActive}}
+      <Loader />
+    {{else}}
+      {{outlet}}
+    {{/if}}
+  </div>
+</div>

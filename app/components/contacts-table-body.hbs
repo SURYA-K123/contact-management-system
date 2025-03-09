@@ -1,0 +1,44 @@
+<tr
+  data-test-contact
+  role='button'
+  {{on 'click' (fn this.viewContact @details.id)}}
+>
+  <td>
+    <div class='table-flex-wrapper'>
+      <img
+        src='https://randomuser.me/api/portraits/men/1.jpg'
+        class='contact-profile'
+        alt='Profile'
+      /><span class='contact-name'>{{@details.name}}</span>
+    </div>
+  </td>
+  <td>
+    {{@details.relationship}}
+  </td>
+  <td>
+    {{@details.phone}}
+  </td>
+  <td>
+    {{@details.email}}
+  </td>
+  <td>
+    {{! template-lint-disable no-nested-interactive }}
+    <button
+      type='button'
+      class='btn bg-white rounded-circle p-1'
+      data-bs-toggle='modal'
+      {{on 'click' this.updateName}}
+      data-bs-target='#call-modal'
+    ><i class='fa fa-phone'></i>
+    </button>
+  </td>
+  <td>
+    {{! template-lint-disable no-nested-interactive }}
+    <i
+      role='button'
+      class='fa fa-heart wishlist-icon
+        {{if @details.isFavourite "is-favourite"}}'
+      {{on 'click' (fn this.toggleFavourite @details)}}
+    ></i>
+  </td>
+</tr>

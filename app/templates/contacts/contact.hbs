@@ -1,0 +1,8 @@
+<Modal @modalId='ondelete' />
+<Modal @modalId='delete-confirm' @action={{fn this.deleteContact this.model}} />
+<Contact
+  @details={{this.model}}
+  @onedit={{this.goToEdit}}
+  @ondelete={{this.showDeleteConfirmationModal}}
+  @toggleFavourite={{fn this.toggleFavourite this.model}}
+/>
